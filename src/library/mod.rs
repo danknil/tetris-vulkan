@@ -14,6 +14,11 @@ pub fn get_phys_vec(instance: &Arc<Instance>) -> Option<Vec<String>> {
                 x.push(y.name().to_string())
             }
         } // push names to vector
+        _ => {
+            for y in PhysicalDevice::enumerate(instance) {
+                x.push(y.name().to_string())
+            }
+        } // push names to vector
     };
     Some(x) // return a vector
 }
